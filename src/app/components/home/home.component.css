@@ -1,0 +1,53 @@
+/* General Navbar Styles */
+.navbar {
+    background-color: #4a90e2;
+  }
+
+  .navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .navbar-nav .nav-link {
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #ffcc00;
+  }
+
+  .dropdown-menu {
+    background-color: #4a90e2;
+  }
+
+  .dropdown-item {
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+
+  .dropdown-item:hover {
+    background-color: #357ab8;
+  }
+
+  /* Dropdown on Hover (Desktop Only) */
+  @media (min-width: 768px) {
+    .dropdown:hover .dropdown-menu {
+      display: block;
+      margin-top: 0;
+    }
+  }
+
+  /* Adjust Dropdown on Mobile */
+  @media (max-width: 767px) {
+    .dropdown-menu {
+      position: static;
+      float: none;
+      background-color: #4a90e2;
+    }
+    .dropdown-item {
+      padding: 0.5rem 1.5rem;
+    }
+  }

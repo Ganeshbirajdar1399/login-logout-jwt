@@ -1,0 +1,35 @@
+const register = async (req: Request, res: Response, next: NextFunction) => {
+  const { fname, lname, email, password, role } = req.body;
+
+  if(!fname || !lname || !email || !password){
+    res.status(400).json({ error: 'All feild are required' });
+    return
+  }
+
+  const student = await StudentSchema.findOne({ email });
+  if(student){
+    res.status(400).json({ error: 'User Already Exists.'});
+    return;
+  }
+  try{
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newStudent = await StudentSchema.create({
+        fname,
+        lname,
+        email,
+        password: hashedPassword,
+        role: role || 'student',
+    });
+
+    res.status(201).json({
+        status: true,
+        message: 'Student Created',
+        data: {_id: newStudent._id, fname:newStudent.fname, lname:newStudent.lname, email:newStudent.email, password:newStudent.password, role:newStudent.role},
+    });
+return;
+  }
+  catch(error){
+    res.status(500).json({error: 'Something went wrong'});
+    return;
+  }  
+};

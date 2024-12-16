@@ -1,0 +1,15 @@
+<div class="container-fluid pt-3">
+  <div class="card" style="width: 100">
+    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <div class="card-body">
+      <h5 class="card-title">
+        Welcome @defer(when student) { {{ student.fname }} {{ student.lname }} }
+      </h5>
+      <p class="card-text">
+        Some quick example text to build on the card title and make up the bulk
+        of the card's content.
+      </p>
+      <button class="btn btn-danger" (click)="logOut()">Log out</button>
+    </div>
+  </div>
+</div>

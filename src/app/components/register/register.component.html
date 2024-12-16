@@ -1,0 +1,82 @@
+<div class="container w-50 pt-5">
+  <h1 class="text-center">Student Signup</h1>
+  <form [formGroup]="studentReg" (submit)="onSignupSubmit()">
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"
+        >First Name <span class="text-danger">*</span></label
+      >
+      <input
+        type="text"
+        required
+        class="form-control"
+        formControlName="fname"
+      />
+      <small
+        class="text-danger"
+        *ngIf="studentReg.get('fname')?.touched && studentReg.get('fname')?.invalid && studentReg.get('fname')?.errors?.['required']"
+      >
+        First Name Is Required
+      </small>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"
+        >Last Name <span class="text-danger">*</span></label
+      >
+      <input
+        type="text"
+        required
+        class="form-control"
+        formControlName="lname"
+      />
+      <small
+        class="text-danger"
+        *ngIf="studentReg.get('lname')?.touched && studentReg.get('lname')?.invalid && studentReg.get('lname')?.errors?.['required']"
+      >
+        Last Name Is Required
+      </small>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"
+        >Email <span class="text-danger">*</span></label
+      >
+      <input
+        type="text"
+        required
+        class="form-control"
+        formControlName="email"
+      />
+      <small
+        class="text-danger"
+        *ngIf="studentReg.get('email')?.touched && studentReg.get('email')?.invalid && studentReg.get('email')?.errors?.['required']"
+      >
+        Email Is Required
+      </small>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"
+        >Password <span class="text-danger">*</span></label
+      >
+      <input
+        type="text"
+        required
+        class="form-control"
+        formControlName="password"
+      />
+      <small
+        class="text-danger"
+        *ngIf="studentReg.get('password')?.touched && studentReg.get('password')?.invalid && studentReg.get('password')?.errors?.['required']"
+      >
+        Password Is Required
+      </small>
+    </div>
+    <div>
+      <button
+        type="submit"
+        class="btn btn-primary btn-sm"
+        [disabled]="studentReg.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
